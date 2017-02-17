@@ -1,0 +1,26 @@
+<div class="navbar navbar-inverse" role="navigation">
+  <div class="container">
+    <ul class="nav navbar-nav">
+         <li>  <a class="navbar-brand" href="/imageshow?page=1">All Images</a></li>
+     <li> <a class="navbar-brand" href="/imageupload">Upload Image</a></li>
+      <% if(locals.username){ %>
+      <li> <a class="navbar-brand" href="/myimageshow?page=1">My Own Images</a></li>
+      <% } %>
+      </ul>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+
+        <% if (locals.username) { %>
+          <li><a href="#">
+                <%= username %>
+          </a></li>
+          <li><a href="/logout">Logout</a></li>
+        <% } %>
+        <% if (!locals.username) { %>
+           <li><button id="btnReg" class="btn btn-lg btn-primary" onclick="location.href='/register'">Sign Up</button></li>
+           <li><a href="/login"> Sign In</a></li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</div>
