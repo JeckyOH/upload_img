@@ -50,7 +50,7 @@ app.use('/myimageremove', myimageremove);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  var err = new Error('404 Not Found');
   err.status = 404;
   next(err);
 });
@@ -70,5 +70,17 @@ app.listen(8080, function()
            {
              console.log("Server start!");
            });
+
+var https = require('https')
+    ,fs = require("fs");
+
+var options = {
+    key: fs.readFileSync('./private.pem'),
+    cert: fs.readFileSync('./file.crt')
+};
+
+https.createServer(options, app).listen(3011, function () {
+    console.log('Https server listening on port ' + 3011);
+});
 
 module.exports = app;

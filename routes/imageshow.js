@@ -9,11 +9,6 @@ var express = require('express'),
 /* GET home page. */
 router.get('/', function(req, res){
 
-  if(req.cookies.islogin)
-  {
-    req.session.username = req.cookies.islogin;
-  }
-
   if(req.session.username)
   {
     res.locals.username = req.session.username;

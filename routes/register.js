@@ -25,7 +25,7 @@ router.post('/', function(req, res) {
   User.getUserNumByName(newUser.username, function (err, results) {
 
       if (results != null && results > 0) {
-          err = 'Username Already Exist!';
+          err = 'Username ' + userName + ' Already Exist!';
       }
 
       if (err) {

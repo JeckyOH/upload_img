@@ -49,7 +49,7 @@ Image.prototype.save =
                     console.log("Error:" + err);
                   }
                   else {
-                    console.log("invoked[saveimage]");
+                    console.log("invoked[saveimage]  image captiona: " + image.caption);
                     callback(err,res, numAffected);
                   }
 

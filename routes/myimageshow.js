@@ -66,6 +66,7 @@ router.get('/', function(req, res){
                                         {
                                           var path = IMAGE_FOLDER + results[index].image_name;
                                           console.log("image path:" + path);
+                                          console.log("image caption:" + results[index].caption);
                                           images.push({path:path, caption:results[index].caption, upload_time:results[index].upload_time});
                                         }
                                         console.log("Ready to routes to imageshow. images:" + images.length);

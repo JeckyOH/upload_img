@@ -59,6 +59,12 @@ router.post('/', function(req, res) {
       return;
     }
 
+    var imageCap = fields.imgCaption;
+    if (imageCap.toUpperCase().match("[^0-9A-Z,.!? ]")){
+      res.locals.error = 'Invalid Image Caption. Only digitals, characters, comma(,) and period(.) are allowed.';
+      res.render('imageupload', { title: TITLE });
+      return;
+    }
     newImage.caption = fields.imgCaption;
 
     var extName = '';
